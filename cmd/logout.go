@@ -15,8 +15,8 @@
 package cmd
 
 import (
-	"../logger"
-	"../service"
+	"github.com/MarshallW906/Agenda/logger"
+	"github.com/MarshallW906/Agenda/service"
 
 	"github.com/spf13/cobra"
 )
