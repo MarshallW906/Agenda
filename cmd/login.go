@@ -15,9 +15,9 @@
 package cmd
 
 import (
-	"github.com/MarshallW906/Agenda/logger"
-	"github.com/MarshallW906/Agenda/service"
-	"github.com/MarshallW906/Agenda/utils"
+	"../logger"
+	"../service"
+	"../utils"
 
 	"github.com/spf13/cobra"
 )
@@ -26,7 +26,11 @@ import (
 var loginCmd = &cobra.Command{
 	Use:   "login",
 	Short: "Login",
-	Long:  `Login`,
+	Long: `Login
+	- 用户登录
+	- args: username (string), password (string)
+	- notes: 若已登录，则先登出，无论是否能登录成功
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		username := utils.GetNonEmptyString(cmd, "username")
 		password := utils.GetNonEmptyString(cmd, "password")

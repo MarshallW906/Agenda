@@ -15,8 +15,8 @@
 package cmd
 
 import (
-	"github.com/MarshallW906/Agenda/logger"
-	"github.com/MarshallW906/Agenda/service"
+	"../logger"
+	"../service"
 
 	"github.com/spf13/cobra"
 )
@@ -25,7 +25,11 @@ import (
 var listUsersCmd = &cobra.Command{
 	Use:   "listUsers",
 	Short: "List all users",
-	Long:  `List all users`,
+	Long: `List all users
+	- 列出所有用户
+	- args: None
+	- notes: 要求已登录
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		service.ListAllUsers()
 

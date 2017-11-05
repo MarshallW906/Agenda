@@ -15,9 +15,9 @@
 package cmd
 
 import (
-	"github.com/MarshallW906/Agenda/logger"
-	"github.com/MarshallW906/Agenda/service"
-	"github.com/MarshallW906/Agenda/utils"
+	"../logger"
+	"../service"
+	"../utils"
 	"github.com/spf13/cobra"
 )
 
@@ -25,7 +25,11 @@ import (
 var removeParticipantCmd = &cobra.Command{
 	Use:   "removeParticipant",
 	Short: "remove a participant of a existed meeting",
-	Long:  `remove a participant of a existed meeting`,
+	Long: `remove a participant of a existed meeting
+	- usage: 删除会议参与者
+	- args: title string, participant string
+	- notes: 要求已登录,仅能操作当前用户为发起者的会议，仅剩发起者的会议应删除
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		title := utils.GetNonEmptyString(cmd, "title")
 		participants := utils.GetNonEmptyStringSlice(cmd, "participants")

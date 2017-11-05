@@ -15,9 +15,9 @@
 package cmd
 
 import (
-	"github.com/MarshallW906/Agenda/logger"
-	"github.com/MarshallW906/Agenda/service"
-	"github.com/MarshallW906/Agenda/utils"
+	"../logger"
+	"../service"
+	"../utils"
 
 	"github.com/spf13/cobra"
 )
@@ -26,7 +26,11 @@ import (
 var removeUserCmd = &cobra.Command{
 	Use:   "removeUser",
 	Short: "Remove a user",
-	Long:  `Remove a user`,
+	Long: `Remove a user
+	- 用户删除
+	- args: username string, password string
+	- notes: 若成功删除当前用户，登出
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		username := utils.GetNonEmptyString(cmd, "username")
 		password := utils.GetNonEmptyString(cmd, "password")

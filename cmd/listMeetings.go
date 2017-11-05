@@ -15,8 +15,8 @@
 package cmd
 
 import (
-	"github.com/MarshallW906/Agenda/logger"
-	"github.com/MarshallW906/Agenda/service"
+	"../logger"
+	"../service"
 	"github.com/spf13/cobra"
 )
 
@@ -24,7 +24,11 @@ import (
 var listMeetingsCmd = &cobra.Command{
 	Use:   "listMeetings",
 	Short: "List all the meetings",
-	Long:  `List all the meetings. no args.`,
+	Long: `List all the meetings. no args.
+	- usage: 列出所有与当前用户有关的会议
+	- args: None
+	- notes: 要求已登录,列出的会议包括该用户发起的，和参与的会议"
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		service.ListAllMeetings()
 		logger.Info("listMeetings called")
